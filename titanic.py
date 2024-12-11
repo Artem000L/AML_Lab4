@@ -11,5 +11,8 @@ titanic_dataset = titanic_df.copy()
 # titanic_dataset = titanic_dataset[['Pclass', 'Sex', 'Age']]
 # titanic_dataset.to_csv("titanic_dataset_cut.csv", index=False)
 
-titanic_dataset['Age'].fillna(titanic_dataset['Age'].mean(), inplace=True)
-titanic_dataset.to_csv("titanic_dataset_notnanage.csv", index=False)
+# titanic_dataset['Age'].fillna(titanic_dataset['Age'].mean(), inplace=True)
+# titanic_dataset.to_csv("titanic_dataset_notnanage.csv", index=False)
+
+titanic_dataset = pd.get_dummies(titanic_dataset, columns=['Sex'], prefix=['Sex'], dtype=int)
+titanic_dataset.to_csv("titanic_dataset_ohe.csv", index=False)
